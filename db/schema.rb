@@ -14,14 +14,14 @@
 ActiveRecord::Schema.define(version: 20141116154059) do
 
   create_table "organizations", force: true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "users", force: true do |t|
     t.string   "username"
-    t.string   "password"
+    t.string   "encrypted_password"
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
