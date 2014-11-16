@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
   	@user = current_user
   	if @user.nil?
-  		redirect_to session_path
+  		redirect_to sessions_new_path
   	end
   end
 end
