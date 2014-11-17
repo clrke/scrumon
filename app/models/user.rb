@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	attr_accessor :password
 
+	has_and_belongs_to_many :organizations
+
 	validates 	:username,	:presence	=> true,
 				:length					=> { :maximum => 50 }
 
