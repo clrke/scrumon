@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20141117153607) do
   end
 
   create_table "organizations_users", force: true do |t|
-    t.integer "organizations_id"
-    t.integer "users_id"
+    t.integer "organization_id"
+    t.integer "user_id"
     t.boolean "admin"
   end
 
