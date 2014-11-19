@@ -1,10 +1,24 @@
-<h1><%= @organization.name %></h1>
+<div ng-app="OrganizationsApp">
+	<h1><%= @organization.name %></h1>
 
-<h2> Members </h2>
-<ul>
-	<% @organization.users.each do |u| %>
-		<li> <%= u.username %> </li>
-	<% end %>
-</ul>
+	<h2> Members </h2>
+	<ul>
+		<% @organization.users.each do |u| %>
+			<li> <%= u.username %> </li>
+		<% end %>
+	</ul>
 
-{{ 'Hello World!' }}
+	<h2> Tasks </h2>
+	<div ng-controller="TasksController as tasks">
+		<ul>
+			<li ng-repeat="task in tasks.tasks">
+				{{ task.title }}
+			</li>
+			<li>
+				<form ng-submit="tasks.add()">
+					<input type="text" ng-model="tasks.newTask"/>
+				</form>
+			</li>
+		</ul>
+	</div>
+</div>
