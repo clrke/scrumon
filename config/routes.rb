@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'organizations/index'
-
-  get 'organizations/new'
-
-  get 'organizations/edit'
-
-  get 'organizations/show'
 
   get 'users/new'
   get 'users/show'
