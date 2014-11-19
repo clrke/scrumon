@@ -13,6 +13,7 @@ class OrganizationsController < ApplicationController
 
   def show
   	check_auth
+  	get_organization
   end
 
   def check_auth
@@ -20,5 +21,9 @@ class OrganizationsController < ApplicationController
   	if @user.nil?
   		redirect_to sessions_new_path
   	end
+  end
+
+  def get_organization
+  	@organization = Organization.find(params[:id])
   end
 end
