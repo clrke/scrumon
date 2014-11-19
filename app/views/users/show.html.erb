@@ -1,3 +1,4 @@
 <h1>Users#show</h1>
 <p> Welcome <%= @user.username %>! </p>
+<%= link_to "Manage Organizations", organizations_path %> <br/>
 <%= link_to "Log out", sessions_destroy_path, method: 'post' %>
