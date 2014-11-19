@@ -1,2 +1,8 @@
-<h1>Organizations#show</h1>
-<p>Find me in app/views/organizations/show.html.erb</p>
+<h1><%= @organization.name %></h1>
+
+<h2> Members </h2>
+<ul>
+	<% @organization.users.each do |u| %>
+		<li> <%= u.username %> </li>
+	<% end %>
+</ul>
