@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root :to => 'sessions#new'
   get 'users/new'
   get 'users/show'
   get 'sessions/new'
