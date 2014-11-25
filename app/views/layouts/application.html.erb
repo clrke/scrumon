@@ -58,8 +58,7 @@
         <div class="col-lg-3">
           <div class="well sidebar-nav">
             <h1> Options </h1>
-            <%= link_to "Manage Organizations", organizations_path %> <br/>
-            <%= link_to "Log out", sessions_destroy_path, method: 'post' %>
+            <%= render 'partials/options' %>
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->
