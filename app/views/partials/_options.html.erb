@@ -2,6 +2,7 @@
 	<% if current_user.nil? %>
 		<li class="list-group-item"> None for you </li>
 	<% else %>
+		<%= link_to "Home", users_show_path, :class=>'list-group-item' %>
 		<%= link_to "Manage Organizations", organizations_path, :class=>'list-group-item' %>
 		<%= link_to "Log out", sessions_destroy_path, method: 'post', :class=>'list-group-item' %>
 	<% end %>
