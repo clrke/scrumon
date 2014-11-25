@@ -45,14 +45,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Scrumon</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
-          </ul>
-        </div>
+        <a class="navbar-brand" href="/">Scrumon</a>
       </div>
     </div>
 
@@ -64,19 +57,15 @@
         </div>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
+            <h1> Options </h1>
+            <%= link_to "Manage Organizations", organizations_path %> <br/>
+            <%= link_to "Log out", sessions_destroy_path, method: 'post' %>
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; Ark Eidolon 2014</p>
       </footer>
 
     </div> <!-- /container -->
