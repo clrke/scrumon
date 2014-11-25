@@ -1,7 +1,9 @@
 <h1>Organizations</h1>
 
-<% @user.organizations.each do |o| %>
-	<%= link_to o.name, organization_path(o.id) %>
-<% end %>
+<ul class="list-group">
+	<% @user.organizations.each do |o| %>
+		<%= link_to o.name, organization_path(o.id), :class=>'list-group-item' %>
+	<% end %>
 
-<%= link_to "New", new_organization_path %>
+	<%= link_to "New", new_organization_path, :class=>'list-group-item active' %>
+</ul>
