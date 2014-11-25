@@ -5,6 +5,7 @@ class OrganizationsController < ApplicationController
 
   def new
   	check_auth
+  	@organization = Organization.new
   end
 
   def edit
