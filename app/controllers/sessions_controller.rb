@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
 	def new
+		@user = current_user
+		if ! @user.nil?
+			redirect_to users_show_path
+		end
 	end
 
 	def create
