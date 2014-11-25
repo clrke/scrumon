@@ -1,8 +1,8 @@
-<ul>
+<ul class="list-group">
 	<% if current_user.nil? %>
-		<li> None for you </li>
+		<li class="list-group-item"> None for you </li>
 	<% else %>
-		<li><%= link_to "Manage Organizations", organizations_path %> </li>
-		<li><%= link_to "Log out", sessions_destroy_path, method: 'post' %> </li>
+		<%= link_to "Manage Organizations", organizations_path, :class=>'list-group-item' %>
+		<%= link_to "Log out", sessions_destroy_path, method: 'post', :class=>'list-group-item' %>
 	<% end %>
 </ul>
