@@ -3,3 +3,5 @@
 <% @user.organizations.each do |o| %>
 	<%= link_to o.name, organization_path(o.id) %>
 <% end %>
+
+<%= link_to "New", new_organization_path %>

@@ -11,6 +11,15 @@ class OrganizationsController < ApplicationController
   	check_auth
   end
 
+	def create
+		p params
+		organization = Organization.create :name => params[:organization][:name]
+		organization.users << current_user
+		organization.save
+
+		redirect_to organizations_path
+	end
+
   def show
   	check_auth
   	get_organization

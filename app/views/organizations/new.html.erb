@@ -1,2 +1,12 @@
-<h1>Organizations#new</h1>
-<p>Find me in app/views/organizations/new.html.erb</p>
+<h1>New Organization</h1>
+
+<% if flash[:error] %>
+	<p> <%= flash[:error] %> </p>
+<% end %>
+
+<%= form_for(@organization, :url => organizations_path, :html => {:class => 'form form-inline form-group'}) do |f| %>
+	<div class="form-group">
+		<%= f.text_field :name, {:class => 'form-control', :placeholder => 'Name'} %>
+	</div>
+	<%= f.button :submit, {:class => 'btn btn-primary'} %>
+<% end %>
