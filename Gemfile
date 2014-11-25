@@ -41,3 +41,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'angularjs-rails'
 
 gem 'twitter-bootstrap-rails'
+
+gem 'active_link_to'

@@ -14,6 +14,8 @@ GEM
       activesupport (= 4.1.7)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    active_link_to (1.0.2)
+      actionpack
     activemodel (4.1.7)
       activesupport (= 4.1.7)
       builder (~> 3.1)
@@ -117,6 +119,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  active_link_to
   angularjs-rails
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)
