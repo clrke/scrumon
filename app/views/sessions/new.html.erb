@@ -4,8 +4,8 @@
 	<p> <%= flash[:error] %> </p>
 <% end %>
 
-<%= form_for(:session, :url => sessions_create_path) do |f| %>
-	<%= f.text_field :username %>
-	<%= f.password_field :password %>
-	<%= f.button :submit %>
+<%= form_for(:session, :url => sessions_create_path, :html => {:class => 'form form-inline form-group'}) do |f| %>
+	<%= f.text_field :username, {:class => 'form-control'} %>
+	<%= f.password_field :password, {:class => 'form-control'} %>
+	<%= f.button :submit, {:class => 'btn btn-primary'} %>
 <% end %>
