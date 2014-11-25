@@ -1,6 +1,7 @@
 <ul class="list-group">
 	<% if current_user.nil? %>
-		<li class="list-group-item"> None for you </li>
+		<%= active_link_to "Login", sessions_new_path, :class=>'list-group-item' %>
+		<%= active_link_to "Register", users_new_path, :class=>'list-group-item' %>
 	<% else %>
 		<%= active_link_to "Home", users_show_path, :class=>'list-group-item' %>
 		<%= active_link_to "Manage Organizations", organizations_path, :class=>'list-group-item' %>

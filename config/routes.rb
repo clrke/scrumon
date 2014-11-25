@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'users/new'
   get 'users/show'
+  post 'users/create'
 
   get 'sessions/new'
   post 'sessions/create'

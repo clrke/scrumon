@@ -55,14 +55,12 @@
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <% if current_user.present? %>
-          <div class="col-lg-3">
-            <div class="well sidebar-nav">
-              <h1> Options </h1>
-              <%= render 'partials/options' %>
-            </div><!--/.well -->
-          </div><!--/span-->
-        <% end %>
+        <div class="col-lg-3">
+          <div class="well sidebar-nav">
+            <h1> Options </h1>
+            <%= render 'partials/options' %>
+          </div><!--/.well -->
+        </div><!--/span-->
       </div><!--/row-->
 
       <footer>
