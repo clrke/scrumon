@@ -1,39 +1,42 @@
 <div ng-app="OrganizationsApp">
 	<h1><%= @organization.name %></h1>
 
-	<h2> Members </h2>
-	<ul>
-		<% @organization.users.each do |u| %>
-			<li>
-				<%= u.username %>
-				<% if current_user == u %>
-					[ <%= link_to "leave", users_leave_path(:id => @organization), data:{confirm: "Are you sure?", :method => "delete"} %> ]
-				<% end %>
-			</li>
-		<% end %>
-		<li>
-			<%= form_for :user, :url => users_join_path, :html => {:class => 'form form-inline form-group'} do |u| %>
-				<input type="hidden" name="org_id" value="<%= @organization.id %>">
-				<div class="input-group">
-					<input type="text" class="form-control" name="username">
-					<span class="input-group-btn">
-						<button type="submit" class="btn btn-primary"> New </button>
-					</span>
-				</div>
+	<div class="col-md-6">
+		<h2> Tasks </h2>
+		<div ng-controller="TasksController as tasks">
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="task in tasks.tasks">
+					{{ task.title }}
+				</li>
+				<li class="list-group-item">
+					<form ng-submit="tasks.add()">
+						<input type="text" class="form-control" ng-model="tasks.newTask"/>
+					</form>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<h2> Members </h2>
+		<ul class="list-group">
+			<% @organization.users.each do |u| %>
+				<li class="list-group-item">
+					<%= u.username %>
+					<% if current_user == u %>
+						[ <%= link_to "leave", users_leave_path(:id => @organization), data:{confirm: "Are you sure?", :method => "delete"} %> ]
+					<% end %>
+				</li>
 			<% end %>
-		</li>
-	</ul>
-
-	<h2> Tasks </h2>
-	<div ng-controller="TasksController as tasks">
-		<ul>
-			<li ng-repeat="task in tasks.tasks">
-				{{ task.title }}
-			</li>
-			<li>
-				<form ng-submit="tasks.add()">
-					<input type="text" ng-model="tasks.newTask"/>
-				</form>
+			<li class="list-group-item">
+				<%= form_for :user, :url => users_join_path, :html => {:class => 'form form-group'} do |u| %>
+					<input type="hidden" name="org_id" value="<%= @organization.id %>">
+					<div class="input-group">
+						<input type="text" class="form-control" name="username">
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-primary"> New </button>
+						</span>
+					</div>
+				<% end %>
 			</li>
 		</ul>
 	</div>
