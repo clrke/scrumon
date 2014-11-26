@@ -6,8 +6,10 @@ angular.module 'OrganizationsApp', []
 	.controller 'TasksController', ->
 		c = this
 
+		c.loaded = true
+
 		c.newTask = ''
-		c.tasks = [ { title: "Hi" } ]
+		c.tasks = [ ]
 
 		c.add = ->
 			c.tasks.push {title: c.newTask}

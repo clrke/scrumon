@@ -5,6 +5,9 @@
 		<h2> Tasks </h2>
 		<div ng-controller="TasksController as tasks">
 			<ul class="list-group">
+				<li class="list-group-item" ng-if=" ! tasks.loaded">
+					<i style="color:red;"> Something went wrong. Please refresh the page. </i>
+				</li>
 				<li class="list-group-item" ng-repeat="task in tasks.tasks">
 					{{ task.title }}
 				</li>
