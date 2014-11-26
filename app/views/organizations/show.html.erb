@@ -11,6 +11,17 @@
 				<% end %>
 			</li>
 		<% end %>
+		<li>
+			<%= form_for :user, :url => users_join_path, :html => {:class => 'form form-inline form-group'} do |u| %>
+				<input type="hidden" name="org_id" value="<%= @organization.id %>">
+				<div class="input-group">
+					<input type="text" class="form-control" name="username">
+					<span class="input-group-btn">
+						<button type="submit" class="btn btn-primary"> New </button>
+					</span>
+				</div>
+			<% end %>
+		</li>
 	</ul>
 
 	<h2> Tasks </h2>

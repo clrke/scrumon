@@ -20,6 +20,27 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def join
+		begin
+			@org = Organization.find(params[:org_id])
+			@user = User.find_by! username: params[:username]
+
+			p @user.organizations.exists? :id => @org.id
+
+			if @user.organizations.exists? :id => @org.id
+				flash[:error] = "User \"#{params[:username]}\" is already in this group!"
+				redirect_to :back
+			else
+				@user.organizations << @org
+				redirect_to organization_path(@org), notice: "Successfully add #{params[:username]} to the group!"
+			end
+
+		rescue ActiveRecord::RecordNotFound
+			flash[:error] = "User \"#{params[:username]}\" does not exist!"
+			redirect_to :back
+		end
+	end
+
 	def leave
 		@org = Organization.find(params[:id])
 		current_user.organizations.delete(@org)
