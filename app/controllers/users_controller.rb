@@ -45,6 +45,6 @@ class UsersController < ApplicationController
 		@org = Organization.find(params[:id])
 		current_user.organizations.delete(@org)
 
-		redirect_to organizations_path
+		redirect_to organizations_path, notice: "Successfully left the \"#{@org.name}\" group!"
 	end
 end
