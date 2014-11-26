@@ -6,9 +6,9 @@ class UsersController < ApplicationController
 		@user = User.create params[:user].permit(:username, :email, :password, :password_confirmation)
 
 		if @user.save
-			redirect_to sessions_new_path, notice:
+			redirect_to sessions_new_path, notice: 'Successfully registered!'
 		else
-			flash[:error] = "Invalid credentials"
+			flash[:error] = "Invalid credentials!"
 			render action: "new"
 		end
 	end
