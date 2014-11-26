@@ -13,7 +13,6 @@ class OrganizationsController < ApplicationController
   end
 
 	def create
-		p params
 		organization = Organization.create :name => params[:organization][:name]
 		organization.users << current_user
 		organization.save
