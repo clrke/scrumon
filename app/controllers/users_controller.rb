@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 		@user = User.create params[:user].permit(:username, :email, :password, :password_confirmation)
 
 		if @user.save
-			redirect_to sessions_new_path
+			redirect_to sessions_new_path, notice:
 		else
 			flash[:error] = "Invalid credentials"
 			render action: "new"
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 				redirect_to :back
 			else
 				@user.organizations << @org
-				redirect_to organization_path(@org), notice: "Successfully add #{params[:username]} to the group!"
+				redirect_to organization_path(@org), notice: "Successfully added #{params[:username]} to the group!"
 			end
 
 		rescue ActiveRecord::RecordNotFound
