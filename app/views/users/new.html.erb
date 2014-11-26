@@ -1,9 +1,5 @@
 <h1>Register</h1>
 
-<% if flash[:error] %>
-	<p> <%= flash[:error] %> </p>
-<% end %>
-
 <%= form_for(@user, :url => users_create_path, :html => {:class => 'form form-inline form-group'}) do |f| %>
 	<div class="form-group">
 		<%= f.text_field :username, {:class => 'form-control', :placeholder => 'Username'} %>
