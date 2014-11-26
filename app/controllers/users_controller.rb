@@ -19,4 +19,11 @@ class UsersController < ApplicationController
 			redirect_to sessions_new_path
 		end
 	end
+
+	def leave
+		@org = Organization.find(params[:id])
+		current_user.organizations.delete(@org)
+
+		redirect_to users_show_path
+	end
 end

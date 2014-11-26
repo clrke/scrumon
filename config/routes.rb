@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'users/show'
   post 'users/create'
+  delete 'users/leave'
 
   get 'sessions/new'
   post 'sessions/create'

@@ -4,7 +4,12 @@
 	<h2> Members </h2>
 	<ul>
 		<% @organization.users.each do |u| %>
-			<li> <%= u.username %> </li>
+			<li>
+				<%= u.username %>
+				<% if current_user == u %>
+					[ <%= link_to "leave", users_leave_path(:id => @organization), data:{confirm: "Are you sure?", :method => "delete"} %> ]
+				<% end %>
+			</li>
 		<% end %>
 	</ul>
 
