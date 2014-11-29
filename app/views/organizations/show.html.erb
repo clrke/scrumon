@@ -8,13 +8,16 @@
 				<li class="list-group-item" ng-if=" ! tasks.loaded">
 					<i style="color:red;"> Something went wrong. Please refresh the page. </i>
 				</li>
-				<li class="list-group-item" ng-repeat="task in tasks.tasks">
-					{{ task.title }}
-				</li>
-				<li class="list-group-item">
-					<form ng-submit="tasks.add()">
-						<input type="text" class="form-control" ng-model="tasks.newTask"/>
-					</form>
+				<% @organization.tasks.each do |t| %>
+					<li class="list-group-item">
+						<%= t.title %>
+					</li>
+				<% end %>
+				<li class="list-group-item list-group-item-info">
+					<%= form_for :task, :url => tasks_create_path, :html => {:class => 'form'} do |u| %>
+						<input type="hidden" name="organization_id" value="<%= @organization.id %>">
+						<input type="text" class="form-control" name="title">
+					<% end %>
 				</li>
 			</ul>
 		</div>
