@@ -3,21 +3,18 @@
 
 	<div class="col-md-6">
 		<h2> Tasks </h2>
-		<div ng-controller="TasksController as tasks">
+		<div ng-controller="TasksController as tasks" ng-init="tasks.org_id = <%= @organization.id %>; tasks.tasks = <%= @organization.tasks.to_json %>">
 			<ul class="list-group">
 				<li class="list-group-item" ng-if=" ! tasks.loaded">
 					<i style="color:red;"> Something went wrong. Please refresh the page. </i>
 				</li>
-				<% @organization.tasks.each do |t| %>
-					<li class="list-group-item">
-						<%= t.title %>
-					</li>
-				<% end %>
+				<li class="list-group-item" ng-repeat="task in tasks.tasks">
+					{{ task.title }}
+				</li>
 				<li class="list-group-item list-group-item-info">
-					<%= form_for :task, :url => tasks_create_path, :html => {:class => 'form'} do |u| %>
-						<input type="hidden" name="organization_id" value="<%= @organization.id %>">
-						<input type="text" class="form-control" name="title">
-					<% end %>
+					<form ng-submit="tasks.add()">
+						<input type="text" class="form-control" name="title" ng-model="tasks.newTask" required>
+					</form>
 				</li>
 			</ul>
 		</div>
