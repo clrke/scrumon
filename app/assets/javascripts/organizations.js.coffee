@@ -15,4 +15,8 @@ angular.module 'OrganizationsApp', []
 			$http.post '/tasks/create', {title: c.newTask, organization_id: c.org_id}
 			c.tasks.push {title: c.newTask}
 			c.newTask = ''
+
+		c.alterStatus = (task) ->
+			task.done = !task.done
+			$http.post '/tasks/update', task
 	]

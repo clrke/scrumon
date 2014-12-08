@@ -9,6 +9,7 @@
 					<i style="color:red;"> Something went wrong. Please refresh the page. </i>
 				</li>
 				<li class="list-group-item" ng-repeat="task in tasks.tasks">
+					<button class="glyphicon glyphicon-check btn" ng-class="{'btn-success' : task.done, 'btn-default' : !task.done}" ng-click="tasks.alterStatus(task)"></button>
 					{{ task.title }}
 				</li>
 				<li class="list-group-item list-group-item-info">

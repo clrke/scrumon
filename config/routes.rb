@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   post 'tasks/create'
+  post 'tasks/update'
   post 'tasks/assign'
 
   root 'sessions#new'
