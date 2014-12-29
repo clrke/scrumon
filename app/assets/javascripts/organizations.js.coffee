@@ -13,7 +13,13 @@ angular.module 'OrganizationsApp', []
 
 		c.add = ->
 			$http.post '/tasks/create', {title: c.newTask, organization_id: c.org_id}
-			c.tasks.push {title: c.newTask}
+				.success (data) ->
+					for i in [0...c.tasks.length]
+						if c.tasks[i].id is -1
+							c.tasks[i] = data
+							break
+
+			c.tasks.push {title: c.newTask, id: -1}
 			c.newTask = ''
 
 		c.alterStatus = (task) ->

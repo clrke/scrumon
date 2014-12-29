@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
   def create
-	Task.create task_params
-  	redirect_to :back
+	render json: Task.create(task_params)
   end
 
   def assign
