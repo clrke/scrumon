@@ -4,25 +4,25 @@
 
 angular.module 'OrganizationsApp', []
 	.controller 'TasksController', ['$http', ($http) ->
-		c = this
+		Task = this
 
-		c.loaded = true
+		Task.loaded = true
 
-		c.newTask = ''
-		c.tasks = [ ]
+		Task.newTask = ''
+		Task.all = [ ]
 
-		c.add = ->
-			$http.post '/tasks/create', {title: c.newTask, organization_id: c.org_id}
+		Task.add = ->
+			$http.post '/tasks/create', {title: Task.newTask, organization_id: Task.org_id}
 				.success (data) ->
-					for i in [0...c.tasks.length]
-						if c.tasks[i].id is -1
-							c.tasks[i] = data
+					for i in [0...Task.all.length]
+						if Task.all[i].id is -1
+							Task.all[i] = data
 							break
 
-			c.tasks.push {title: c.newTask, id: -1}
-			c.newTask = ''
+			Task.all.push {title: Task.newTask, id: -1}
+			Task.newTask = ''
 
-		c.alterStatus = (task) ->
+		Task.alterStatus = (task) ->
 			task.done = !task.done
 			$http.post '/tasks/update', task
 	]
