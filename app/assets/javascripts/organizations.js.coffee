@@ -9,17 +9,17 @@ angular.module 'OrganizationsApp', []
 		Task.loaded = true
 
 		Task.newTask = ''
-		Task.all = [ ]
+		Task.objects = [ ]
 
 		Task.add = ->
 			$http.post '/tasks/create', {title: Task.newTask, organization_id: Task.org_id}
 				.success (data) ->
-					for i in [0...Task.all.length]
-						if Task.all[i].id is -1
-							Task.all[i] = data
+					for i in [0...Task.objects.length]
+						if Task.objects[i].id is -1
+							Task.objects[i] = data
 							break
 
-			Task.all.push {title: Task.newTask, id: -1}
+			Task.objects.push {title: Task.newTask, id: -1}
 			Task.newTask = ''
 
 		Task.alterStatus = (task) ->
