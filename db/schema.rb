@@ -13,19 +13,19 @@
 
 ActiveRecord::Schema.define(version: 20141208081210) do
 
-  create_table "organizations", force: true do |t|
+  create_table "organizations", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
   end
 
-  create_table "organizations_users", force: true do |t|
+  create_table "organizations_users", force: :cascade do |t|
     t.integer "organization_id"
     t.integer "user_id"
     t.boolean "admin"
   end
 
-  create_table "tasks", force: true do |t|
+  create_table "tasks", force: :cascade do |t|
     t.string   "title"
     t.integer  "organization_id"
     t.integer  "user_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20141208081210) do
   add_index "tasks", ["organization_id"], name: "index_tasks_on_organization_id"
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "encrypted_password"
     t.string   "salt"
