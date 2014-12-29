@@ -8,9 +8,9 @@
 				<li class="list-group-item" ng-if=" ! Task.loaded">
 					<i style="color:red;"> Something went wrong. Please refresh the page. </i>
 				</li>
-				<li class="list-group-item" ng-repeat="task in Task.objects">
+				<li class="list-group-item" ng-repeat="task in Task.objects | orderBy: 'done+title'">
 					<button class="glyphicon glyphicon-check btn" ng-class="{'btn-success' : task.done, 'btn-default' : !task.done}" ng-click="Task.alterStatus(task)"></button>
-					{{ task.title }} {{ task.done }}
+					{{ task.title }}
 				</li>
 				<li class="list-group-item list-group-item-info">
 					<form ng-submit="Task.add()">
